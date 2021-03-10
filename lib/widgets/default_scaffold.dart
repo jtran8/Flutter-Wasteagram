@@ -14,7 +14,8 @@ class DefaultScaffold extends StatelessWidget {
         title: Text(this.title),
       ),
       body: this.body,
-      floatingActionButton: addButton(context)
+      floatingActionButton: addButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat
     );
   }
 
@@ -23,7 +24,7 @@ class DefaultScaffold extends StatelessWidget {
       return FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(this.routeName),
         tooltip: 'Create a new post.',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.camera_alt),
       );
     }
     return null;
