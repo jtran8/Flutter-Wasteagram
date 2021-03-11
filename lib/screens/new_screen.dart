@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import '../widgets/default_scaffold.dart';
 
 class NewScreen extends StatefulWidget {
