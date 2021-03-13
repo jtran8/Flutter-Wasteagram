@@ -3,7 +3,7 @@ class FoodWastePost {
   int leftovers;
   double lat;
   double long;
-  DateTime date;
+  String date;
 
   FoodWastePost({this.imgURL, this.leftovers, this.lat, this.long, this.date});
 }
