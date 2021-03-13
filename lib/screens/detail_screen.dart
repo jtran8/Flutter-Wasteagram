@@ -27,7 +27,7 @@ class _PostScreenState extends State<DetailScreen> {
       child: Column(
         children: [
           Image.network(data.imgURL),
-          buildText(4, leftovers, Theme.of(context).textTheme.headline4),
+          buildText(3, leftovers, Theme.of(context).textTheme.headline4),
           buildText(1, location, Theme.of(context).textTheme.subtitle1)
         ]
       )
