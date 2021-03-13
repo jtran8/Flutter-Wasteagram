@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 
 class DefaultScaffold extends StatelessWidget {
   final body;
@@ -29,9 +28,5 @@ class DefaultScaffold extends StatelessWidget {
       );
     }
     return null;
-  }
-
-  void getImage() async {
-    image = await ImagePicker.pickImage(source: ImageSource.gallery);
   }
 }
