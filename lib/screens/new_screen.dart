@@ -11,6 +11,8 @@ class NewScreen extends StatefulWidget {
 }
 
 class _NewScreenState extends State<NewScreen> {
+  File image;
+  
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
