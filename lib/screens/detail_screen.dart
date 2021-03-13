@@ -15,7 +15,25 @@ class _PostScreenState extends State<DetailScreen> {
     final FoodWastePost data = ModalRoute.of(context).settings.arguments;
     return DefaultScaffold(
       title: '${data.date}',
-      body: Text('Post Screen')
+      body: buildDetails(context, data)
+    );
+  }
+
+  Widget buildDetails(context, data) {
+    return Center(
+      child: Column(
+        children: [
+          Image.network(data.imgURL),
+          Text(
+              '${data.leftovers} Wasted Items',
+              style: Theme.of(context).textTheme.headline4
+          ),
+          Text(
+              'Location: ${data.lat}, ${data.long}',
+              style: Theme.of(context).textTheme.subtitle1
+          )
+       ],
+      )
     );
   }
 }
