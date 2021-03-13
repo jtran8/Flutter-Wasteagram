@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/list_screen.dart';
 import 'screens/new_screen.dart';
-import 'screens/post_screen.dart';
+import 'screens/detail_screen.dart';
 
 
 class App extends StatefulWidget {
@@ -12,7 +12,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   static final routes = {
     ListScreen.routeName: (context) => ListScreen(),
-    PostScreen.routeName: (context) => PostScreen(),
+    DetailScreen.routeName: (context) => DetailScreen(),
     NewScreen.routeName: (context) => NewScreen()
   };
   
