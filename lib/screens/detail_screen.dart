@@ -20,19 +20,27 @@ class _PostScreenState extends State<DetailScreen> {
   }
 
   Widget buildDetails(context, data) {
+    final String leftovers = '${data.leftovers} Wasted Items';
+    final String location = 'Location: ${data.lat}, ${data.long}';
+    
     return Center(
       child: Column(
         children: [
           Image.network(data.imgURL),
-          Text(
-              '${data.leftovers} Wasted Items',
-              style: Theme.of(context).textTheme.headline4
-          ),
-          Text(
-              'Location: ${data.lat}, ${data.long}',
-              style: Theme.of(context).textTheme.subtitle1
-          )
-       ],
+          buildText(4, leftovers, Theme.of(context).textTheme.headline4),
+          buildText(1, location, Theme.of(context).textTheme.subtitle1)
+        ]
+      )
+    );
+  }
+
+  Widget buildText(flex, text, style) {
+    return Flexible(
+      fit: FlexFit.tight,
+      flex: flex,
+      child: Align(
+        alignment: Alignment.center, 
+        child: Text('$text', style: style)
       )
     );
   }
