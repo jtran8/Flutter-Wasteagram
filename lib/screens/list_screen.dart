@@ -1,8 +1,5 @@
-import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'detail_screen.dart';
 import 'new_screen.dart';
@@ -17,6 +14,8 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
+  
+  var counter = 0;
 
   @override
   void initState() {
@@ -26,7 +25,7 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
-      title: 'Wasteagram',
+      title: 'Wasteagram - $counter',
       routeName: NewScreen.routeName,
       body: buildDecider(context)
     );
@@ -49,24 +48,23 @@ class _ListScreenState extends State<ListScreen> {
     return ListView.builder(
       itemCount: snapshot.data.docs.length,
       itemBuilder: (context, index) {
-        var post = snapshot.data.docs[index];
+        final post = snapshot.data.docs[index];
         return buildTile(context, post);
       }
     );
   }
 
   Widget buildTile(context, post) {
-    final format = DateFormat('EEEE, MMMM d, y');
-    DateTime date = post['date'].toDate();
-    var currPost = FoodWastePost(
+    final date = post['date'].toDate();
+    final currPost = FoodWastePost(
       imgURL: post['imgURL'],
       leftovers: post['leftovers'],
       lat: post['lat'],
       long: post['long'],
-      date: format.format(date)
+      date: date
     );
     return ListTile(
-      title: Text(format.format(date)),
+      title: Text(DateFormat('EEEE, MMMM d, y').format(date)),
       trailing: Text(
         post['leftovers'].toString(),
         style: Theme.of(context).textTheme.headline6,
@@ -76,5 +74,10 @@ class _ListScreenState extends State<ListScreen> {
           arguments: currPost
       )
     );
+  }
+
+  void updateCounter(post) {
+    counter += post['leftovers'];
+    setState(() {});
   }
 }
