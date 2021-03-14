@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:location/location.dart';
 import 'package:flutter/services.dart';
@@ -58,33 +59,38 @@ class _NewPostFormState extends State<NewPostForm> {
   }
 
   Widget buildInput(context) {
-    return TextFormField(
-      decoration: const InputDecoration(hintText: 'How many leftovers today?'),
-      // From: https://stackoverflow.com/questions/49577781/how-to-create-number-input-field-in-flutter
-      keyboardType: TextInputType.number,
-      inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
-      style: Theme.of(context).textTheme.headline5,
-      textAlign: TextAlign.center,
-      onSaved: (value) async {
-        post.imgURL = url;
-        post.leftovers = int.parse(value);
-        locationData = await retrieveLocation();
-        post.lat = locationData.latitude;
-        post.long = locationData.longitude;
-        post.date = DateTime.now();
-        FirebaseFirestore.instance.collection('posts').add(post.toJson());
-      },
-      validator: (value) {
-        return (value.isEmpty) ? 'Please enter a number.' : null;
-      }
+    return Semantics(
+      child: TextFormField(
+        decoration: const InputDecoration(hintText: 'How many leftovers today?'),
+        // From: https://stackoverflow.com/questions/49577781/how-to-create-number-input-field-in-flutter
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
+        style: Theme.of(context).textTheme.headline5,
+        textAlign: TextAlign.center,
+        onSaved: (value) async {
+          post.imgURL = url;
+          post.leftovers = int.parse(value);
+          locationData = await retrieveLocation();
+          post.lat = locationData.latitude;
+          post.long = locationData.longitude;
+          post.date = DateTime.now();
+          FirebaseFirestore.instance.collection('posts').add(post.toJson());
+        },
+        validator: (value) {
+          return (value.isEmpty) ? 'Please enter a number.' : null;
+        }
+      ),
+      readOnly: false,
+      focusable: true,
+      hint: 'Input a number.'
     );
   }
 
   Widget buildButton(context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      child: ElevatedButton(
-        child:
+      child: Semantics(
+        child: ElevatedButton(child:
           Icon(Icons.cloud, size: 100),
           onPressed:() {
             if (formKey.currentState.validate()) {
@@ -92,6 +98,10 @@ class _NewPostFormState extends State<NewPostForm> {
               Navigator.of(context).pop();
             }
           }
+        ),
+        button: true,
+        enabled: true,
+        onTapHint: 'Upload a new post.'
       )
     );
   }
