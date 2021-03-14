@@ -63,16 +63,21 @@ class _ListScreenState extends State<ListScreen> {
       long: post['long'],
       date: date
     );
-    return ListTile(
-      title: Text(DateFormat('EEEE, MMMM d, y').format(date)),
-      trailing: Text(
-        post['leftovers'].toString(),
-        style: Theme.of(context).textTheme.headline6,
+    return Semantics(
+      child: ListTile(
+        title: Text(DateFormat('EEEE, MMMM d, y').format(date)),
+        trailing: Text(
+          post['leftovers'].toString(),
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        onTap: () => Navigator.of(context).pushNamed(
+            DetailScreen.routeName,
+            arguments: currPost
+        )
       ),
-      onTap: () => Navigator.of(context).pushNamed(
-          DetailScreen.routeName,
-          arguments: currPost
-      )
+      button: true,
+      enabled: true,
+      onTapHint: 'Display the details of the post.'
     );
   }
 
