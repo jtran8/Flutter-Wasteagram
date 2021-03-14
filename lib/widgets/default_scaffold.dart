@@ -17,10 +17,9 @@ class DefaultScaffold extends StatelessWidget {
       body: this.body,
       floatingActionButton: Semantics(
         child: addButton(context),
-        label: 'A button to start creating a new Wastegram post by capturing a photo.',
         button: true,
         enabled: true,
-        onTapHint: 'Take a photo for a new post.'
+        onTapHint: 'Take a photo.'
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat
     );
