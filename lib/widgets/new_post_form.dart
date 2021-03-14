@@ -30,7 +30,9 @@ class _NewPostFormState extends State<NewPostForm> {
           children = <Widget>[
             FormatImage(url: url),
             buildForm(context),
-            buildButton(context)
+            Expanded(
+              child:buildButton(context),
+            )
           ];
         } else if (snapshot.hasError) {
           children = <Widget>[].where((child) => child != null).toList(); 
@@ -47,7 +49,7 @@ class _NewPostFormState extends State<NewPostForm> {
 
   Widget buildForm(context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(10, 30, 10, 10),
+      padding: EdgeInsets.fromLTRB(10, 30, 10, 150),
       child: Form(
         key: formKey,
         child: buildInput(context)
@@ -79,19 +81,18 @@ class _NewPostFormState extends State<NewPostForm> {
   }
 
   Widget buildButton(context) {
-    return ElevatedButton(
-      child: Column(
-        children: [
-          Icon(Icons.cloud),
-          Text('Upload')
-        ]
-      ),
-      onPressed:() {
-        if (formKey.currentState.validate()) {
-          formKey.currentState.save();
-          Navigator.of(context).pop();
-        }
-      }
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: ElevatedButton(
+        child:
+          Icon(Icons.cloud, size: 100),
+          onPressed:() {
+            if (formKey.currentState.validate()) {
+              formKey.currentState.save();
+              Navigator.of(context).pop();
+            }
+          }
+      )
     );
   }
 
