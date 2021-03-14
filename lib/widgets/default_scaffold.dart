@@ -14,7 +14,13 @@ class DefaultScaffold extends StatelessWidget {
         title: Text(this.title),
       ),
       body: this.body,
-      floatingActionButton: addButton(context),
+      floatingActionButton: Semantics(
+        child: addButton(context),
+        label: 'A button to start creating a new Wastegram post by capturing a photo.',
+        button: true,
+        enabled: true,
+        onTapHint: 'Take a photo for a new post.'
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat
     );
   }
@@ -23,8 +29,7 @@ class DefaultScaffold extends StatelessWidget {
     if (routeName != null) {
       return FloatingActionButton(
         onPressed: () => Navigator.of(context).pushNamed(this.routeName),
-        tooltip: 'Create a new post.',
-        child: const Icon(Icons.camera_alt),
+        child: const Icon(Icons.camera_alt)
       );
     }
     return null;
