@@ -8,10 +8,10 @@ class FoodWastePost {
   FoodWastePost({this.imgURL, this.leftovers, this.lat, this.long, this.date});
 
   Map<String, dynamic> toJson() => {
-    'date': this.date,
     'imgURL': this.imgURL,
+    'leftovers': this.leftovers,
     'lat': this.lat,
     'long': this.long,
-    'leftovers': this.leftovers,
+    'date': this.date,
   };
 }
