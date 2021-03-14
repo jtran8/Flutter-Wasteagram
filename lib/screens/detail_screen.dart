@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/post.dart';
 import '../widgets/default_scaffold.dart';
+import '../widgets/format_image.dart';
 
 class DetailScreen extends StatefulWidget {
   static const routeName = 'DetailScreen';
@@ -28,7 +29,7 @@ class _PostScreenState extends State<DetailScreen> {
     return Center(
       child: Column(
         children: [
-          Image.network(data.imgURL),
+          FormatImage(url: data.imgURL),
           buildText(3, leftovers, Theme.of(context).textTheme.headline4),
           buildText(1, location, Theme.of(context).textTheme.subtitle1)
         ]
