@@ -4,7 +4,6 @@ import '../widgets/new_post_form.dart';
 
 class NewScreen extends StatefulWidget {
   static const routeName = 'NewScreen';
-
   @override
   _NewScreenState createState() => _NewScreenState();  
 }
