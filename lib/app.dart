@@ -3,7 +3,6 @@ import 'screens/list_screen.dart';
 import 'screens/new_screen.dart';
 import 'screens/detail_screen.dart';
 
-
 class App extends StatefulWidget {
   @override
   _AppState createState() => _AppState();
