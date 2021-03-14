@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../models/post.dart';
 import '../widgets/default_scaffold.dart';
 
@@ -13,8 +14,9 @@ class _PostScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     final FoodWastePost data = ModalRoute.of(context).settings.arguments;
+    final date = DateFormat('EEEE, MMMM d, y').format(data.date);
     return DefaultScaffold(
-      title: '${data.date}',
+      title: '$date',
       body: buildDetails(context, data)
     );
   }
