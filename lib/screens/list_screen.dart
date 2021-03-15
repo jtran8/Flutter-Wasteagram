@@ -1,3 +1,5 @@
+// ListScreen: builds the list screen of all posts.
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
