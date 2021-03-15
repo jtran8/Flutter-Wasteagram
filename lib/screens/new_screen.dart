@@ -1,3 +1,5 @@
+// NewScreen: builds the new post screen.
+
 import 'package:flutter/material.dart';
 import '../widgets/default_scaffold.dart';
 import '../widgets/new_post_form.dart';
