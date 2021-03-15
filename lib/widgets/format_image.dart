@@ -1,3 +1,5 @@
+// FormatImage: returns a Container containing the image passed to the constructor
+
 import 'package:flutter/material.dart';
 
 class FormatImage extends StatelessWidget {
