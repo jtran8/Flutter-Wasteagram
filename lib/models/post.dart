@@ -1,3 +1,5 @@
+// FoodWastePost: the model class for a post
+
 class FoodWastePost {
   String imgURL;
   int leftovers;
