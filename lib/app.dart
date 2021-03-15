@@ -1,4 +1,4 @@
-// The App file that builds the root MaterialApp widget
+// MyApp: builds the root MaterialApp widget
 
 import 'package:flutter/material.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
