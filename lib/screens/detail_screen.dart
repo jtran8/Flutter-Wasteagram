@@ -1,3 +1,5 @@
+// DetailScreen: builds the detail screen for a single post.
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../models/post.dart';
