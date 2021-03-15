@@ -20,18 +20,28 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
-  
-  var counter = 0;
+  // var counter = 0;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   loadCounter();
+  // }
+
+  // void loadCounter() {
+  //   FirebaseFirestore.instance.collection('posts').get()
+  //   .then((QuerySnapshot querySnapshot) => {
+  //       querySnapshot.docs.forEach((doc) {
+  //           counter += doc['leftovers'];
+  //       })
+  //   });
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
     return DefaultScaffold(
-      title: 'Wasteagram - $counter',
+      title: 'Wasteagram',
       routeName: NewScreen.routeName,
       body: buildDecider(context)
     );
@@ -44,7 +54,6 @@ class _ListScreenState extends State<ListScreen> {
         if (snapshot.hasData && snapshot.data.docs != null && snapshot.data.docs.length > 0) {
           return buildList(context, snapshot);
         } else {
-          counter = 0;
           return Center(child: CircularProgressIndicator());
         }
       }
@@ -56,7 +65,6 @@ class _ListScreenState extends State<ListScreen> {
       itemCount: snapshot.data.docs.length,
       itemBuilder: (context, index) {
         final post = snapshot.data.docs[index];
-        counter += post['leftovers'];
         return buildTile(context, post);
       }
     );
@@ -90,10 +98,5 @@ class _ListScreenState extends State<ListScreen> {
       enabled: true,
       onTapHint: 'Display the details of the post.'
     );
-  }
-
-  void updateCounter(post) {
-    counter += post['leftovers'];
-    setState(() {});
   }
 }
