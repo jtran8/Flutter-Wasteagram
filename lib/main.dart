@@ -1,3 +1,7 @@
+// Author: Jacky Tran
+// Program: CS492 Project 5: Wasteagram
+// Description: The main file for this app.
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
