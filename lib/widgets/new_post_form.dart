@@ -74,7 +74,7 @@ class _NewPostFormState extends State<NewPostForm> {
           post.lat = locationData.latitude;
           post.long = locationData.longitude;
           post.date = DateTime.now();
-          FirebaseFirestore.instance.collection('posts').add(post.toJson());
+          FirebaseFirestore.instance.collection('posts').add(post.toMap());
         },
         validator: (value) {
           return (value.isEmpty) ? 'Please enter a number.' : null;
