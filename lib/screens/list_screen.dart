@@ -5,6 +5,7 @@ import 'detail_screen.dart';
 import 'new_screen.dart';
 import '../models/post.dart';
 import '../widgets/default_scaffold.dart';
+import 'package:sentry/sentry.dart';
 
 class ListScreen extends StatefulWidget {
   static const routeName = '/';
@@ -38,6 +39,7 @@ class _ListScreenState extends State<ListScreen> {
         if (snapshot.hasData && snapshot.data.docs != null && snapshot.data.docs.length > 0) {
           return buildList(context, snapshot);
         } else {
+          counter = 0;
           return Center(child: CircularProgressIndicator());
         }
       }
@@ -49,6 +51,7 @@ class _ListScreenState extends State<ListScreen> {
       itemCount: snapshot.data.docs.length,
       itemBuilder: (context, index) {
         final post = snapshot.data.docs[index];
+        counter += post['leftovers'];
         return buildTile(context, post);
       }
     );
