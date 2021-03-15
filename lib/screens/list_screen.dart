@@ -97,7 +97,6 @@ class _ListScreenState extends State<ListScreen> {
           );
         } 
       ),
-      button: true,
       enabled: true,
       onTapHint: 'Display the details of the post.'
     );
