@@ -1,14 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'detail_screen.dart';
 import 'new_screen.dart';
 import '../models/post.dart';
 import '../widgets/default_scaffold.dart';
-import 'package:sentry/sentry.dart';
 
 class ListScreen extends StatefulWidget {
   static const routeName = '/';
+  final FirebaseAnalytics analytics;
+  final FirebaseAnalyticsObserver observer;
+
+  ListScreen({this.analytics, this.observer});
 
   @override
   _ListScreenState createState() => _ListScreenState();  
@@ -73,10 +78,13 @@ class _ListScreenState extends State<ListScreen> {
           post['leftovers'].toString(),
           style: Theme.of(context).textTheme.headline6,
         ),
-        onTap: () => Navigator.of(context).pushNamed(
+        onTap: () {
+          FirebaseAnalytics().logEvent(name: 'tile_tap', parameters: null);
+          Navigator.of(context).pushNamed(
             DetailScreen.routeName,
             arguments: currPost
-        )
+          );
+        } 
       ),
       button: true,
       enabled: true,
