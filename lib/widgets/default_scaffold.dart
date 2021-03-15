@@ -1,3 +1,6 @@
+// DefaultScaffold: builds the main scaffold used in the app,
+// along with an optional FAB
+
 import 'package:flutter/material.dart';
 
 class DefaultScaffold extends StatelessWidget {
