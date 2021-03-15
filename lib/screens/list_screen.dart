@@ -22,6 +22,7 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
+  // Failed attempt at including the total in the appbar
   // var counter = 0;
 
   // @override
