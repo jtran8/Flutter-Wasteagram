@@ -1,4 +1,5 @@
 // Author: Jacky Tran
+// Date: March 14, 2021
 // Program: CS492 Project 5: Wasteagram
 // Description: The main file for this app.
 
