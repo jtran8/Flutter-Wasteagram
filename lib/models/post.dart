@@ -7,7 +7,7 @@ class FoodWastePost {
 
   FoodWastePost({this.imgURL, this.leftovers, this.lat, this.long, this.date});
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
     'imgURL': this.imgURL,
     'leftovers': this.leftovers,
     'lat': this.lat,
