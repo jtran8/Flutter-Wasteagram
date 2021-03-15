@@ -63,7 +63,7 @@ class _NewPostFormState extends State<NewPostForm> {
   Widget buildInput(context) {
     return Semantics(
       child: TextFormField(
-        decoration: const InputDecoration(hintText: 'How many leftovers today?'),
+        decoration: const InputDecoration(hintText: 'Number of Items'),
         // From: https://stackoverflow.com/questions/49577781/how-to-create-number-input-field-in-flutter
         keyboardType: TextInputType.number,
         inputFormatters: <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly],
