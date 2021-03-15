@@ -3,12 +3,12 @@ import 'screens/list_screen.dart';
 import 'screens/new_screen.dart';
 import 'screens/detail_screen.dart';
 
-class App extends StatefulWidget {
+class MyApp extends StatefulWidget {
   @override
-  _AppState createState() => _AppState();
+  _MyAppState createState() => _MyAppState();
 }
 
-class _AppState extends State<App> {
+class _MyAppState extends State<MyApp> {
   static final routes = {
     ListScreen.routeName: (context) => ListScreen(),
     DetailScreen.routeName: (context) => DetailScreen(),
